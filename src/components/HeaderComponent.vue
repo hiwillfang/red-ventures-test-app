@@ -149,7 +149,7 @@ export default {
     }
 
     ul {
-      padding-left: 1rem;
+      padding: 0;
       margin-top: 1rem;
       border-top: 5px solid $btn-primary;
       border-bottom: 5px solid $btn-primary; 
@@ -165,7 +165,6 @@ export default {
     }
 
     &.active {
-      width: 100%;
       display: block;
       position: relative;
       overflow-y: hidden;
@@ -188,7 +187,7 @@ export default {
     @extend %sans_bold;
     color: $brand-primary;
     display: block;
-    padding: 1rem 0;
+    padding: 1rem 0 1rem 1rem;
     background-color: $gray;
     border-bottom: 2px solid $white;
 
