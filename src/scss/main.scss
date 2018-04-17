@@ -91,6 +91,8 @@ body {
   @extend %sans_reg;
   font-size: $base-font;
   color: $text-primary;
+  position: relative;
+  height: 100vh;
 }
 
 img {
