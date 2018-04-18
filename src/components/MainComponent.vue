@@ -23,6 +23,7 @@ export default {
 
 .main {
      padding: 2rem 0;
+     min-height: 1100px;
 
      &__bg {
           background-image: url('../assets/water-image.png');

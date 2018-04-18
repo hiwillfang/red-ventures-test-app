@@ -5,26 +5,26 @@
                  <p class="filter__dealers">7 Dealers in 28226</p>
                  <p class="filter__filter-text">Filter Results</p>
                  <div class="filter__caret-wrap">
-                      <img src="../assets/caret.png" class="filer__caret" alt="Down Caret">
+                      <img src="../assets/caret.png" class="filter__caret" alt="Down Caret">
                  </div>
             </div>
             <div class="filter__mobile-wrap">
                <div class="filter__input-wrap">
-                    <input type="checkbox" class="filter__checkbox" id="checkbox-1" name="checkbox-1" value="service">
+                    <input type="radio" class="filter__checkbox" id="checkbox-1" name="checkbox" value="service" @change="filterChange('Service Pro')">
                     <label class="filter__label" for="checkbox-1">Service</label>
                </div>
                <div class="filter__input-wrap">
-                    <input type="checkbox" class="filter__checkbox" id="checkbox-2" name="checkbox-2" value="installation">
+                    <input type="radio" class="filter__checkbox" id="checkbox-2" name="checkbox" value="installation" @change="filterChange('Installation Pro')">
                     <label class="filter__label" for="checkbox-2">Installation</label>
                </div>
                <div class="filter__input-wrap">
-                    <input type="checkbox" class="filter__checkbox" id="checkbox-3" name="checkbox-3" value="residential">
+                    <input type="radio" class="filter__checkbox" id="checkbox-3" name="checkbox" value="residential" @change="filterChange('Residential Pro')">
                     <label class="filter__label" for="checkbox-3">Residential</label>
                </div>
                <div class="filter__input-wrap">
-                    <input type="checkbox" class="filter__checkbox" id="checkbox-4" name="checkbox-4" value="commerical">
+                    <input type="radio" class="filter__checkbox" id="checkbox-4" name="checkbox" value="commerical" @change="filterChange('Commercial Pro')">
                     <label class="filter__label" for="checkbox-4">Commercial</label>
-                    <button class="filter__tool-tip" v-tooltip="'Please click a filter button'">
+                    <button class="filter__tool-tip">
                          <img src="../assets/tool-tip-icon-filtering.png" alt="Tool Tip">
                     </button>
                </div>
@@ -34,8 +34,15 @@
 </template>
 
 <script>
+import { EventBus } from '../event-bus.js';
+
 export default {
-  
+  methods: {
+        filterChange(selectedFilter){
+            console.log('Emitting FilterChange event from FilterComponent');
+            EventBus.$emit('filterChange', {filter: selectedFilter});
+        }
+    }
 }
 </script>
 
@@ -48,7 +55,7 @@ export default {
 
      @include at-breakpoint(md) {
           width: 90%;
-          margin: 0 auto;
+          margin: 0 auto 1rem auto;
           padding: 0;
      }
 
@@ -96,13 +103,17 @@ export default {
 
      &__caret-wrap {
           margin-top: 1.1rem;
-          padding: 1.5rem 0.7rem 0 0.8rem;
+          padding: 1.5rem 0.9rem 0;
           border-top: 1px solid $border;
           border-right: 1px solid $border;
 
           @include at-breakpoint(md) {
                display: none;
           }
+     }
+
+     &__caret {
+          max-width: 10px;
      }
 
      &__dealers {
@@ -191,7 +202,12 @@ export default {
      &__tool-tip {
           border: 0;
           outline: none;
-          background-color: $gray;
+          background-color: $white;
+
+          @include at-breakpoint(md) {
+               background-color: $gray;
+          }
+
           img {
                max-width: 25px;
                display: inline-block;
