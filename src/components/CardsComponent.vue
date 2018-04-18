@@ -69,7 +69,7 @@ export default {
        axios.get('../../static/json/dealers.json')
        .then(response => {
         this.dealers = response.data.dealers
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch(err => {
         console.log(err);
@@ -80,7 +80,7 @@ export default {
         const vm = this;
         return vm.dealers.filter((dealer) => {
           let newDealer = dealer.data;
-          console.log(newDealer);
+          // console.log(newDealer);
           if(vm.activeFilter){
             console.log('filter is active');
             if(newDealer.certifications && newDealer.certifications.includes(vm.activeFilter)) return newDealer;

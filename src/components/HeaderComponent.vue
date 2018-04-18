@@ -26,7 +26,7 @@
             <nav class="navbar__nav" v-bind:class="{ active: isActive }">
               <ul>
                 <p class="navbar__menu-text">MENU</p>
-                <router-link tag="a" to="#" class="navbar__link navbar__icon-arrow">Pool & Spas</router-link>
+                <router-link tag="a" to="/Pools" class="navbar__link navbar__icon-arrow">Pool & Spas</router-link>
                 <router-link to="#" class="navbar__link navbar__icon-arrow">Supplies</router-link>
                 <router-link to="#" class="navbar__link navbar__icon-arrow">Resources</router-link>
                 <router-link to="#" class="navbar__link navbar__icon-arrow">Services</router-link>
